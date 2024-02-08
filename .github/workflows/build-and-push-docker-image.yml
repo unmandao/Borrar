@@ -19,7 +19,10 @@ jobs:
 
       - name: Get version from pom.xml
         id: get-version
-        run: echo "::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
+        run: |
+          mvn -B org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate \
+          -Dexpression=project.version -q -DforceStdout
+
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
