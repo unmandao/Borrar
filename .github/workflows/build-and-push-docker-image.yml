@@ -21,13 +21,17 @@ jobs:
         id: get-version
         run: echo "::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
 
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.CD_TOKEN }}
+
       - name: Build Docker image
         run: |
           docker build -t ${{ github.repository }}:${{ steps.get-version.outputs.version }} .
           docker tag ${{ github.repository }}:${{ steps.get-version.outputs.version }} ghcr.io/${{ github.repository }}:${{ steps.get-version.outputs.version }}
-
-      - name: Log into GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push Docker image to GitHub Container Registry
         run: docker push ghcr.io/${{ github.repository }}:${{ steps.get-version.outputs.version }}
