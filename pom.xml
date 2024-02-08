@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>es.miw.tfm</groupId>
 	<artifactId>backend</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>backend</name>
 	<description>Backend - Gestión financiera personal</description>
 	<properties>
@@ -88,11 +88,7 @@
 				</executions>
 
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.7</version> <!--2.16.2-->
-			</plugin>
+
 		</plugins>
 	</build>
 
