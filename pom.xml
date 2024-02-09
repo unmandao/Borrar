@@ -19,6 +19,7 @@
 		<maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
 		<jacoco.version>0.8.11</jacoco.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
