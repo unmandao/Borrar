@@ -23,7 +23,7 @@ public class SystemResource {
 
     @GetMapping(value = VERSION_BADGE, produces = {"image/svg+xml"}) // http://localhost:8080/system/version-badge
     public Mono<byte[]> generateBadge() { // http://localhost:8080/system/badge
-        return Mono.just(new Badge().generateBadge("Render", "v" + buildVersion).getBytes());
+        return Mono.just(new Badge().generateBadge("Renderrrrr", "v" + buildVersion).getBytes());
     }
 
     @GetMapping(value = APP_INFO) // http://localhost:8080/system/app-info
